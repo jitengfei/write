@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: registry
     prefer-ip-address: true
     metadata-map:
       user.name: ${security.user.name}
@@ -20,9 +20,9 @@ spring:
           uri: https://github.com/zhangxd1989/spring-boot-cloud
           search-paths: config-repo
   rabbitmq:
-    host: 127.0.0.1
+    host: rabbitmq
     username: admin
-    password: admin
+    password: ${RABBITMQ_PASSWORD:password}
     port: 5672
 
 security:
