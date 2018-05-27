@@ -17,8 +17,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/zhangxd1989/spring-boot-cloud
+          uri: https://github.com/jitengfei/write
           search-paths: config-repo
+          username: jitengfei
+          password: ${GITHUB_PASSWORD:password}
   rabbitmq:
     host: rabbitmq
     username: admin
