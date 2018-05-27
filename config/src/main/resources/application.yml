@@ -26,6 +26,7 @@ spring:
     username: admin
     password: ${RABBITMQ_PASSWORD:password}
     port: 5672
+    virtual-host: admin
 
 security:
   user:
