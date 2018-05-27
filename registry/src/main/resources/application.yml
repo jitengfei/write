@@ -5,6 +5,7 @@ eureka:
   instance:
     hostname: registry
     prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     #是否将自己注册到Eureka Server
     registerWithEureka: false
