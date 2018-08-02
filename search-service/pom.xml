@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>search-service</artifactId>
+    <artifactId>search-com.c4.write.consumer.service</artifactId>
 
 
 </project>
