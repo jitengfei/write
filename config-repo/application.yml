@@ -4,7 +4,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
 
 hystrix:
   command:
@@ -21,6 +21,10 @@ ribbon:
 spring:
   rabbitmq:
     host: rabbitmq
+    username: admin
+    password: ${RABBITMQ_PASSWORD:password}
+    port: 5672
+    virtual-host: admin
   sleuth:
     sampler:
       percentage: 1
@@ -30,7 +34,7 @@ spring:
       skip-pattern: "^org.*HystrixStreamTask$"
 
 authserver:
-    hostname: authserver
+    hostname: auth-com.c4.write.consumer.service
     port: 5000
     contextPath: /uaa
 

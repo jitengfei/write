@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+itcast:
+  item:
+    url: http://127.0.0.1:8081/item/
+
+spring:
+  application:
+    name: itcasst-microservice-order #指定服务名
+
+eureka:
+  instance:
+    hostname: registry
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false #是否将自己注册到Eureka服务中，默认为true
+    fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@${eureka.instance.hostname}:8761/eureka/
+
+##设置负载均衡为随机
+#itcast-microservice-item:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+

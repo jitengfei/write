@@ -1,0 +1,32 @@
+server:
+  port: 8060
+
+#cloud:
+#  config:
+#    uri: http://config:8888
+#    fail-fast: true
+#    username: user
+#    password: ${CONFIG_SERVER_PASSWORD:password}
+#    retry:
+#      initial-interval: 2000
+#      max-interval: 10000
+#      multiplier: 2
+#      max-attempts: 10
+
+#网关测试
+zuul:
+  routes:
+    provider-service: #provider-service这个名字是任意写的
+      path: /provider-service/** #配置请求URL的请求规则
+      url: http://127.0.0.1:8081 #真正的微服务地址
+
+eureka:
+  client:
+    registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
+    fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@${eureka.instance.hostname}:8761/eureka/
+  instance:
+    prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+    hostname: registry
+
