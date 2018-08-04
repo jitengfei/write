@@ -5,21 +5,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestConfigBean {
-    @Value("${document}")
-    private String document;
+    @Value("${password}")
+    private String password;
 
-    public String getDocument() {
-        return document;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "TestConfigBean{" +
-                "document='" + document + '\'' +
+                "password='" + password + '\'' +
                 '}';
     }
 }
